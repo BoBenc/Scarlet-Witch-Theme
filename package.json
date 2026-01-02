@@ -1,0 +1,52 @@
+{
+  "name": "scarlet-witch-theme",
+  "displayName": "Scarlet Witch Theme",
+  "description": "A fan-made VS Code theme inspired by Scarlet Witch.",
+  "version": "0.0.1",
+  "publisher": "BoBenc",
+  "icon": "images/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoBenc/Scarlet-Witch-Theme.git"
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Themes", "Visualization", "Other"
+  ],
+  "keywords": [
+    "scarlet", "witch", "theme", "marvel", "avengers", "wanda", "maximoff", "red", "dark", "hungarian", "hun", "magyar"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Scarlet Witch",
+        "uiTheme": "vs-dark",
+        "path": "themes/color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.107.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.48.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
