@@ -1,4 +1,33 @@
-export function getWebviewContent(): string {
+import * as vscode from 'vscode';
+
+export function showWelcomePanel(context: vscode.ExtensionContext) {
+    const panel = vscode.window.createWebviewPanel(
+        'scarletWitchWelcomePanel',
+        'Scarlet Witch Theme',
+        vscode.ViewColumn.One,
+        {
+            enableScripts: true,
+            retainContextWhenHidden: true
+        }
+    );
+
+    const logoUri = vscode.Uri.joinPath(
+        context.extensionUri,
+        'media',
+        'logo.png'
+    );
+    panel.iconPath = logoUri;
+    panel.webview.html = getWebviewContent();
+    panel.webview.onDidReceiveMessage(
+        message => {
+            if (message.command === 'close') {
+                panel.dispose();
+            }
+        }
+    );
+}
+
+function getWebviewContent(): string {
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -247,7 +276,7 @@ export function getWebviewContent(): string {
                         </ul>
                         <div class="roadmap">
                             <h3>🚀 Future plans</h3>
-                            <div class="roadmap-item">White theme</div>
+                            <div class="roadmap-item">Light theme ✅</div>
                             <div class="roadmap-item">Activity Bar and Sidebar</div>
                             <div class="roadmap-item">Stickers</div>
                             <div class="roadmap-item">Other ideas</div>
@@ -269,7 +298,7 @@ export function getWebviewContent(): string {
                         </ul>
                         <div class="roadmap">
                             <h3>🚀 Jövőbeni tervek</h3>
-                            <div class="roadmap-item">Fehér téma</div>
+                            <div class="roadmap-item">Világos téma ✅</div>
                             <div class="roadmap-item">Activity Bar és Sidebar</div>
                             <div class="roadmap-item">Stickerek</div>
                             <div class="roadmap-item">Egyéb ötletek</div>

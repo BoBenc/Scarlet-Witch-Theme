@@ -1,42 +1,21 @@
 import * as vscode from 'vscode';
-import { getWebviewContent } from './welcomepanel';
+import { showWelcomePanel } from './welcomepanel';
+import { showReleaseNotesPanel } from './releasenotespanel';
 
 export async function activate(context: vscode.ExtensionContext) {
-	const isFirstTime = context.globalState.get<boolean>('scarletWitch.firstTime', false);
+	const currentVersion = context.extension.packageJSON.version;
+    const lastSeenVersion = context.globalState.get<string>('scarletWitch.lastSeenVersion');
 
-	if (!isFirstTime) {
-		showWelcomePanel(context);
-		await context.globalState.update('scarletWitch.firstTime', true);
-	}
-	else {}
-
-	function showWelcomePanel(context: vscode.ExtensionContext) {
-		const panel = vscode.window.createWebviewPanel(
-			'scarletWitchWelcomePanel',
-			'Scarlet Witch Theme',
-			vscode.ViewColumn.One,
-			{
-				enableScripts: true,
-				retainContextWhenHidden: true
-			}
-		);
-
-		const logoUri = vscode.Uri.joinPath(
-			context.extensionUri,
-			'media',
-			'logo.png'
-		);
-		panel.iconPath = logoUri;
-
-		panel.webview.html = getWebviewContent();
-		panel.webview.onDidReceiveMessage(
-			message => {
-				if (message.command === 'close') {
-					panel.dispose();
-				}
-			}
-		);
-	}
+    if (!lastSeenVersion) {
+        showWelcomePanel(context);
+        await context.globalState.update('scarletWitch.lastSeenVersion', currentVersion);
+    }
+    else if (lastSeenVersion !== currentVersion) {
+        showReleaseNotesPanel(context, lastSeenVersion, currentVersion);
+        await context.globalState.update('scarletWitch.lastSeenVersion', currentVersion);
+    }
 }
 
-export function deactivate() {}
+export function deactivate() {
+	vscode.window.showInformationMessage('🔮 Scarlet Witch Theme deactivated.');
+}

@@ -1,7 +1,14 @@
 # Change Log
 Changes in my project.
 
-## Added
-
-### 0.0.1
+## 0.0.1
+### Added
 - Color Palette
+
+## 0.0.2
+### Added
+- Light Theme
+- Release Notes
+
+### Changed
+- Welcome Panel
