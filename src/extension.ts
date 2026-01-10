@@ -1,9 +1,11 @@
 import * as vscode from 'vscode';
 import { showWelcomePanel } from './welcomepanel';
 import { showReleaseNotesPanel } from './releasenotespanel';
+import { showReleaseNotesFullPanel } from './releasenotescollection';
+import { SidebarProvider } from './sidebarprovider';
 
 export async function activate(context: vscode.ExtensionContext) {
-	const currentVersion = context.extension.packageJSON.version;
+    const currentVersion = context.extension.packageJSON.version;
     const lastSeenVersion = context.globalState.get<string>('scarletWitch.lastSeenVersion');
 
     if (!lastSeenVersion) {
@@ -14,8 +16,36 @@ export async function activate(context: vscode.ExtensionContext) {
         showReleaseNotesPanel(context, lastSeenVersion, currentVersion);
         await context.globalState.update('scarletWitch.lastSeenVersion', currentVersion);
     }
+    
+    registerCommands(context);
+
+    const sidebarProvider = new SidebarProvider(context);
+    context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider(
+            SidebarProvider.viewType,
+            sidebarProvider
+        )
+    );
+}
+
+function registerCommands(context: vscode.ExtensionContext) {
+    let welcomeCommand = vscode.commands.registerCommand(
+        'scarlet-witch-theme.showWelcome',
+        () => {
+            showWelcomePanel(context);
+        }
+    );
+
+    let releaseNotesCommand = vscode.commands.registerCommand(
+        'scarlet-witch-theme.showReleaseNotes',
+        () => {
+            showReleaseNotesFullPanel(context);
+        }
+    );
+
+    context.subscriptions.push(welcomeCommand, releaseNotesCommand);
 }
 
 export function deactivate() {
-	vscode.window.showInformationMessage('🔮 Scarlet Witch Theme deactivated.');
+    vscode.window.showInformationMessage('🔮 Scarlet Witch Theme deactivated.');
 }

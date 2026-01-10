@@ -34,7 +34,36 @@
         "uiTheme": "vs",
         "path": "themes/light-color-theme.json"
       }
-    ]
+    ],
+    "commands": [
+      {
+        "title": "Scarlet Witch Theme: ShowWelcome",
+        "command": "scarlet-witch-theme.showWelcome"
+      },
+      {
+        "title": "Scarlet Witch Theme: ShowReleaseNotes",
+        "command": "scarlet-witch-theme.showReleaseNotes"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "scarlet-witch-activitybar",
+          "title": "Scarlet Witch Theme",
+          "icon": "images/scarlet_witch_crown_icon.png"
+        }
+      ]
+    },
+    "views": {
+      "scarlet-witch-activitybar": [
+        {
+          "type": "webview",
+          "id": "scarlet-witch-sidebar",
+          "name": "Home",
+          "icon": "images/logo.png"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

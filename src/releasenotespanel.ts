@@ -14,7 +14,7 @@ export function showReleaseNotesPanel(
 
     const tabIconUri = vscode.Uri.joinPath(
         context.extensionUri,
-        'media',
+        'images',
         'logo.png'
     );
     panel.iconPath = tabIconUri;
@@ -287,16 +287,20 @@ export function showReleaseNotesPanel(
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🎨 Light Theme</strong>
-                            <span>Beautiful light theme for comfortable coding</span>
+                            <strong>🖼️ Activity Bar icon added</strong>
+                            <span>Custom icon now appears in the Activity Bar for quick theme access.</span>
                         </div>
                         <div class="feature">
-                            <strong>🛠️ Improved Welcome Panel show up</strong>
-                            <span>Enhanced welcome panel with better user experience</span>
+                            <strong>🔗 Activity Bar integration</strong>
+                            <span>Full integration with VS Code Activity Bar for seamless navigation.</span>
                         </div>
                         <div class="feature">
-                            <strong>⚙️ Release Notes Panel</strong>
-                            <span>New panel to showcase the latest features and updates</span>
+                            <strong>🗄️ Sidebar added</strong>
+                            <span>Dedicated sidebar panel for theme management and quick actions.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🎯 Sidebar buttons for Welcome Panel and Release Notes</strong>
+                            <span>Direct access buttons in sidebar to Welcome Panel and these Release Notes.</span>
                         </div>
                     </div>
 
@@ -323,16 +327,20 @@ export function showReleaseNotesPanel(
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🎨 Világos téma</strong>
-                            <span>Világos téma a kényelmes kódoláshoz</span>
+                            <strong>🖼️ Tevékenység sáv ikon hozzáadva</strong>
+                            <span>Egyedi ikon jelent meg a Tevékenység sávban a gyors témához való hozzáféréshez.</span>
                         </div>
                         <div class="feature">
-                            <strong>🛠️ Javított üdvözlő panel</strong>
-                            <span>Fejlesztett üdvözlő panel jobb felhasználói élménnyel</span>
+                            <strong>🔗 Tevékenység sáv integráció</strong>
+                            <span>Teljes integráció a VS Code Tevékenység sávjával a zökkenőmentes navigációhoz.</span>
                         </div>
                         <div class="feature">
-                            <strong>⚙️ Frissítés jegyzék</strong>
-                            <span>Új panel az újabb funkciók és frissítések megtekintéséhez</span>
+                            <strong>🗄️ Oldalsáv hozzáadva</strong>
+                            <span>Külön oldalsáv panel a téma kezelésére és gyors műveletekhez.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🎯 Oldalsáv gombok a Üdvözlő panelhez és a Kiadási megjegyzésekhez</strong>
+                            <span>Közvetlen hozzáférési gombok az oldalsávban az Üdvözlő panelhez és a Kiadási megjegyzésekhez.</span>
                         </div>
                     </div>
 

@@ -6,19 +6,24 @@ A **fan-made** VS Code theme inspired by Scarlet Witch. Immerse yourself in the 
 - *Scarlet Witch inspired color palette*
 - *Perfect contrast for code syntax*
 - *Release notes*
+- *Activity Bar and SideBar*
 
 **🔜 More features to come!**
 
 ## 📸 Screenshots
 ### Dark Theme
-![Scarlet Witch Theme extension panel (Dark)](images/extension_preview_panel_dark.png)
+<img src="images/extension_preview_panel_dark.png" alt="Scarlet Witch Theme extension panel (Dark)">
 
-![Scarlet Witch Theme in use (Dark)](images/extension_in_work_dark.png)
+<img src="images/extension_in_work_dark.png" alt="Scarlet Witch Theme in use (Dark)">
+
+<img src="images/activity_bar_and_sidebar_dark.png" alt="Scarlet Witch Theme activity bar and sidebar (Dark)" style="width: 50%; height: auto;">
 
 ### Light Theme
-![Scarlet Witch Theme extension panel (Light)](images/extension_preview_panel_light.png)
+<img src="images/extension_preview_panel_light.png" alt="Scarlet Witch Theme extension panel (Light)">
 
-![Scarlet Witch Theme in use (Light)](images/extension_in_work_light.png)
+<img src="images/extension_in_work_light.png" alt="Scarlet Witch Theme in use (Light)">
+
+<img src="images/activity_bar_and_sidebar_light.png" alt="Scarlet Witch Theme activity bar and sidebar (Light)" style="width: 50%; height: auto;">
 
 ## 🚀 Getting Started
 
@@ -38,7 +43,7 @@ A **fan-made** VS Code theme inspired by Scarlet Witch. Immerse yourself in the 
 <br>
 <br>
 
-# 🔮 Skarlát Boszorkány téma 🔮
+# 🔮 Skarlát Boszorkány Theme 🔮
 
 Ez egy **fan-made** VS Code-téma, amit a Skarlát Boszorkány ihletett. Merülj el a káoszmágia világában ezzel a sötét vagy világos színvilággal, amely hosszú kódolási munkákhoz is kényelmes vizuális élményt nyújt.
 
@@ -46,19 +51,24 @@ Ez egy **fan-made** VS Code-téma, amit a Skarlát Boszorkány ihletett. Merülj
 - *Skarlát Boszorkány ihlette színpaletta*
 - *Tökéletes kontrasztok*
 - *Frissítés jegyzék*
+- *Tevékenység sáv és Oldalsáv*
 
 **🔜 Még több funkció hamarosan!**
 
 ## 📸 Képernyőképek
-### Dark
-![Skarlát Boszorkány téma extension panel (Dark)](images/extension_preview_panel_dark.png)
+### Sötét téma
+<img src="images/extension_preview_panel_dark.png" alt="Scarlet Witch Theme extension panel (Dark)">
 
-![Skarlát Boszorkány téma gyakorlatban (Dark)](images/extension_in_work_dark.png)
+<img src="images/extension_in_work_dark.png" alt="Scarlet Witch Theme gyakorlatban (Dark)">
 
-### Light
-![Skarlát Boszorkány téma extension panel (Light)](images/extension_preview_panel_light.png)
+<img src="images/activity_bar_and_sidebar_dark.png" alt="Scarlet Witch Theme tevékenység sáv és oldalsáv (Dark)" style="width: 50%; height: auto;">
 
-![Skarlát Boszorkány téma gyakorlatban (Light)](images/extension_in_work_light.png)
+### Világos téma
+<img src="images/extension_preview_panel_light.png" alt="Scarlet Witch Theme extension panel (Light)">
+
+<img src="images/extension_in_work_light.png" alt="Scarlet Witch Theme gyakorlatban (Light)">
+
+<img src="images/activity_bar_and_sidebar_light.png" alt="Scarlet Witch Theme tevékenység sáv és oldalsáv (Light)" style="width: 50%; height: auto;">
 
 ## 🚀 Kezdő lépések
 

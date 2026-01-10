@@ -12,3 +12,10 @@ Changes in my project.
 
 ### Changed
 - Welcome Panel
+
+## 0.0.3
+### Added
+- Activity Bar icon
+- Activity Bar
+- Sidebar
+- Sidebar buttons for Welcome Panel and Release Notes

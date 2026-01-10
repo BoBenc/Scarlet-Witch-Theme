@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 export function showWelcomePanel(context: vscode.ExtensionContext) {
     const panel = vscode.window.createWebviewPanel(
         'scarletWitchWelcomePanel',
-        'Scarlet Witch Theme',
+        'Scarlet Witch Theme - Welcome',
         vscode.ViewColumn.One,
         {
             enableScripts: true,
@@ -13,7 +13,7 @@ export function showWelcomePanel(context: vscode.ExtensionContext) {
 
     const logoUri = vscode.Uri.joinPath(
         context.extensionUri,
-        'media',
+        'images',
         'logo.png'
     );
     panel.iconPath = logoUri;
@@ -277,7 +277,7 @@ function getWebviewContent(): string {
                         <div class="roadmap">
                             <h3>🚀 Future plans</h3>
                             <div class="roadmap-item">Light theme ✅</div>
-                            <div class="roadmap-item">Activity Bar and Sidebar</div>
+                            <div class="roadmap-item">Activity Bar and Sidebar ✅</div>
                             <div class="roadmap-item">Stickers</div>
                             <div class="roadmap-item">Other ideas</div>
                         </div>
@@ -287,7 +287,7 @@ function getWebviewContent(): string {
                     </div>
 
                     <div id="hu-content" class="content">
-                        <h1>🔮 Skarlát Boszorkány téma 🔮</h1>
+                        <h1>🔮 Skarlát Boszorkány Theme 🔮</h1>
                         <div class="subtitle">VS Code téma</div>
                         <p>Üdvözöllek a Skarlát Boszorkány téma üdvözlő felületén!</p>
                         <div class="magic">✨ Káosz Mágia elszabadítva ✨</div>
@@ -299,7 +299,7 @@ function getWebviewContent(): string {
                         <div class="roadmap">
                             <h3>🚀 Jövőbeni tervek</h3>
                             <div class="roadmap-item">Világos téma ✅</div>
-                            <div class="roadmap-item">Activity Bar és Sidebar</div>
+                            <div class="roadmap-item">Activity Bar és Sidebar ✅</div>
                             <div class="roadmap-item">Stickerek</div>
                             <div class="roadmap-item">Egyéb ötletek</div>
                         </div>
