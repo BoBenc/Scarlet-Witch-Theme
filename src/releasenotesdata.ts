@@ -13,6 +13,28 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.4',
+        date: '2026-01-18',
+        title: {
+            en: 'Status Bar button',
+            hu: 'Állapotsor gomb'
+        },
+        changes: {
+            en: [
+                '🖼️ Status Bar button added',
+                '🔗 Copilot integration with Status Bar button',
+                '🗄️ No More Errors! panel added',
+                '🔥 Sticker image in the No More Errors! panel'
+            ],
+            hu: [
+                '🖼️ Állapotsor gomb hozzáadva',
+                '🔗 Copilot integráció az Állapotsor gombbal',
+                '🗄️ No More Errors! panel hozzáadva',
+                '🔥 Matrica kép a No More Errors! panelen'
+            ]
+        }
+    },
+    {
         version: '0.0.3',
         date: '2026-01-10',
         title: {

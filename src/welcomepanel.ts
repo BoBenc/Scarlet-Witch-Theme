@@ -278,7 +278,7 @@ function getWebviewContent(): string {
                             <h3>🚀 Future plans</h3>
                             <div class="roadmap-item">Light theme ✅</div>
                             <div class="roadmap-item">Activity Bar and Sidebar ✅</div>
-                            <div class="roadmap-item">Stickers</div>
+                            <div class="roadmap-item"><s>Stickers</s> &nbsp instead Status Bar button ✅</div>
                             <div class="roadmap-item">Other ideas</div>
                         </div>
                         <p><strong>Activate the theme:</strong></p>
@@ -300,7 +300,7 @@ function getWebviewContent(): string {
                             <h3>🚀 Jövőbeni tervek</h3>
                             <div class="roadmap-item">Világos téma ✅</div>
                             <div class="roadmap-item">Activity Bar és Sidebar ✅</div>
-                            <div class="roadmap-item">Stickerek</div>
+                            <div class="roadmap-item"><s>Stickerek</s> &nbsp helyette állapotsor gomb ✅</div>
                             <div class="roadmap-item">Egyéb ötletek</div>
                         </div>
                         <p><strong>A téma aktiválása:</strong></p>

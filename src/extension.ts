@@ -3,6 +3,8 @@ import { showWelcomePanel } from './welcomepanel';
 import { showReleaseNotesPanel } from './releasenotespanel';
 import { showReleaseNotesFullPanel } from './releasenotescollection';
 import { SidebarProvider } from './sidebarprovider';
+import { createStatusBarItem } from './statusbaritem';
+import { registerCopilotCommand } from './copilotcommand';
 
 export async function activate(context: vscode.ExtensionContext) {
     const currentVersion = context.extension.packageJSON.version;
@@ -26,6 +28,8 @@ export async function activate(context: vscode.ExtensionContext) {
             sidebarProvider
         )
     );
+
+    context.subscriptions.push(createStatusBarItem(context), registerCopilotCommand(context));
 }
 
 function registerCommands(context: vscode.ExtensionContext) {

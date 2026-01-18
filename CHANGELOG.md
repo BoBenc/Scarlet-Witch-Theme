@@ -19,3 +19,15 @@ Changes in my project.
 - Activity Bar
 - Sidebar
 - Sidebar buttons for Welcome Panel and Release Notes
+
+## 0.0.4
+### Added
+- Status Bar button
+- Magic Panel
+- Copilot Command
+- New image
+
+### Changed
+- README.md
+- Welcome Panel
+- Release Notes Panel

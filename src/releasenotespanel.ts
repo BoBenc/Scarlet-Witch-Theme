@@ -281,26 +281,26 @@ export function showReleaseNotesPanel(
                 <div id="en-content" class="content active">
                     <div class="header">
                         <h1>🔮 Scarlet Witch Theme 🔮</h1>
-                        <span class="version-info">Updated: v${oldVersion} → v${newVersion}</span>
+                        <span class="version-info">Updated: ${oldVersion} → ${newVersion}</span>
                     </div>
 
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Activity Bar icon added</strong>
-                            <span>Custom icon now appears in the Activity Bar for quick theme access.</span>
+                            <strong>🖼️ Status Bar button added</strong>
+                            <span>Quick-access button now appears in the Status Bar.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔗 Activity Bar integration</strong>
-                            <span>Full integration with VS Code Activity Bar for seamless navigation.</span>
+                            <strong>🔗 Copilot integration with Status Bar button</strong>
+                            <span>Copilot integration via Status Bar button for error fixing in current file.</span>
                         </div>
                         <div class="feature">
-                            <strong>🗄️ Sidebar added</strong>
-                            <span>Dedicated sidebar panel for theme management and quick actions.</span>
+                            <strong>🗄️ No More Errors! panel added</strong>
+                            <span>Visual panel for fun.</span>
                         </div>
                         <div class="feature">
-                            <strong>🎯 Sidebar buttons for Welcome Panel and Release Notes</strong>
-                            <span>Direct access buttons in sidebar to Welcome Panel and these Release Notes.</span>
+                            <strong>🔥 Sticker image in the No More Errors! panel</strong>
+                            <span>Graphics enhance the No More Errors! panel experience.</span>
                         </div>
                     </div>
 
@@ -321,26 +321,26 @@ export function showReleaseNotesPanel(
                 <div id="hu-content" class="content">
                     <div class="header">
                         <h1>🔮 Scarlet Witch Theme 🔮</h1>
-                        <span class="version-info">Frissítve: v${oldVersion} → v${newVersion}</span>
+                        <span class="version-info">Frissítve: ${oldVersion} → ${newVersion}</span>
                     </div>
 
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Tevékenység sáv ikon hozzáadva</strong>
-                            <span>Egyedi ikon jelent meg a Tevékenység sávban a gyors témához való hozzáféréshez.</span>
+                            <strong>🖼️ Állapotsor gomb hozzáadva</strong>
+                            <span>Gyors hozzáférésű gomb jelent meg az állapotsorban.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔗 Tevékenység sáv integráció</strong>
-                            <span>Teljes integráció a VS Code Tevékenység sávjával a zökkenőmentes navigációhoz.</span>
+                            <strong>🔗 Copilot integráció az Állapotsor gombbal</strong>
+                            <span>Copilot hibajavítás az aktuális fájlban.</span>
                         </div>
                         <div class="feature">
-                            <strong>🗄️ Oldalsáv hozzáadva</strong>
-                            <span>Külön oldalsáv panel a téma kezelésére és gyors műveletekhez.</span>
+                            <strong>🗄️ No More Errors! panel hozzáadva</strong>
+                            <span>Vizualizáció No More Errors! panelhez</span>
                         </div>
                         <div class="feature">
-                            <strong>🎯 Oldalsáv gombok a Üdvözlő panelhez és a Kiadási megjegyzésekhez</strong>
-                            <span>Közvetlen hozzáférési gombok az oldalsávban az Üdvözlő panelhez és a Kiadási megjegyzésekhez.</span>
+                            <strong>🔥 Matrica kép a No More Errors! panelen</strong>
+                            <span>Látványos kép a No More Errors! panelen.</span>
                         </div>
                     </div>
 
