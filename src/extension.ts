@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
-import { showWelcomePanel } from './welcomepanel';
-import { showReleaseNotesPanel } from './releasenotespanel';
-import { showReleaseNotesFullPanel } from './releasenotescollection';
+import { showWelcomePanel } from './panels/welcomepanel';
+import { showReleaseNotesPanel } from './panels/releasenotespanel';
+import { showReleaseNotesFullPanel } from './panels/releasenotescollection';
+import { PictureGalleryPanel, showPictureGalleryPanel } from './panels/picturegallerypanel';
 import { SidebarProvider } from './sidebarprovider';
 import { createStatusBarItem } from './statusbaritem';
 import { registerCopilotCommand } from './copilotcommand';
@@ -47,7 +48,14 @@ function registerCommands(context: vscode.ExtensionContext) {
         }
     );
 
-    context.subscriptions.push(welcomeCommand, releaseNotesCommand);
+    let pictureGalleryCommand = vscode.commands.registerCommand(
+        'scarlet-witch-theme.showPictureGallery',
+        () => {
+            showPictureGalleryPanel(context);
+        }
+    );
+
+    context.subscriptions.push(welcomeCommand, releaseNotesCommand, pictureGalleryCommand);
 }
 
 export function deactivate() {

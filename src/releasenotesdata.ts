@@ -13,6 +13,30 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.5',
+        date: '2026-01-26',
+        title: {
+            en: 'Picture Gallery panel',
+            hu: 'Képgaléria panel'
+        },
+        changes: {
+            en: [
+                '🖼️ Picture Gallery panel added',
+                '🔗 You can select an image from Picture Gallery to No More Errors! panel',
+                '💬 You can switch on/off Speech Bubble from Picture Gallery panel',
+                '🗄️ Activity Bar & Sidebar got a new button',
+                '🔥 No More Errors! panel rework'
+            ],
+            hu: [
+                '🖼️ Képgaléria panel hozzáadva',
+                '🔗 Választhatsz képet a Képgalériából a No More Errors! panelhez',
+                '💬 Be- és kikapcsolhatod a Beszédbuborékot a Képgaléria panelen',
+                '🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot',
+                '🔥 No More Errors! panel újragondolva'
+            ]
+        }
+    },
+    {
         version: '0.0.4',
         date: '2026-01-18',
         title: {

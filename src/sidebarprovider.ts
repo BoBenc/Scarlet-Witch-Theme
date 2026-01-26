@@ -32,6 +32,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         vscode.commands.executeCommand('scarlet-witch-theme.showReleaseNotes');
                         break;
                     }
+                    case 'openPictureGallery': {
+                        vscode.commands.executeCommand('scarlet-witch-theme.showPictureGallery');
+                        break;
+                    }
                     case 'ready': {
                         break;
                     }
@@ -148,6 +152,23 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     .btn-secondary:active {
                         transform: translateY(-1px);
                     }
+                    
+                    .btn-third {
+                        background: linear-gradient(135deg, #FF6B9D 0%, #C71585 50%, #8B008B 100%);
+                        color: #F5E6D3;
+                        border: 1px solid rgba(199, 21, 133, 0.3);
+                    }
+
+                    .btn-third:hover {
+                        background: linear-gradient(135deg, #FF1493 0%, #FF69B4 50%, #DA70D6 100%);
+                        color: #120414;
+                        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.5);
+                        transform: translateY(-3px) scale(1.02);
+                    }
+
+                    .btn-third:active {
+                        transform: translateY(-1px);
+                    }
 
                     .btn::before {
                         content: '';
@@ -203,6 +224,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                 </div>
 
                 <div class="section">
+                    <div class="section-title">Actions</div>
+                    <button id="pictureBtn" class="btn btn-third">
+                        <span>🖼️</span>
+                        Picture Gallery
+                    </button>
+                </div>
+
+                <div class="section">
                     <div class="info-box">
                         <strong>🎉 Enjoy! 🎉</strong>
                     </div>
@@ -212,6 +241,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     let vscode;
                     const releaseNotesBtn = document.getElementById('releaseNotesBtn');
                     const welcomeBtn = document.getElementById('welcomeBtn');
+                    const pictureBtn = document.getElementById('pictureBtn');
 
                     try {
                         vscode = acquireVsCodeApi();
@@ -233,6 +263,16 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         if (vscode) {
                             vscode.postMessage({
                                 type: 'openReleaseNotes'
+                            });
+                        } else {
+                            console.error('❌ VSCode API not available');
+                        }
+                    });
+
+                    pictureBtn.addEventListener('click', () => {
+                        if (vscode) {
+                            vscode.postMessage({
+                                type: 'openPictureGallery'
                             });
                         } else {
                             console.error('❌ VSCode API not available');

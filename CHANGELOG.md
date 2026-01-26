@@ -31,3 +31,15 @@ Changes in my project.
 - README.md
 - Welcome Panel
 - Release Notes Panel
+
+## 0.0.5
+### Added
+- New button on Activity Bar for Picture Gallery panel
+- New Picture Gallery panel
+- New images
+
+### Changed
+- README.md
+- Welcome Panel
+- Release Notes Panel
+- Magic Panel

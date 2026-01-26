@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { showMagicPanel } from './magicpanel';
+import { showMagicPanel } from './panels/magicpanel';
 
 export function registerCopilotCommand(context: vscode.ExtensionContext): vscode.Disposable {
     const fixCmd = vscode.commands.registerCommand(

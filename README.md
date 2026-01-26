@@ -21,6 +21,7 @@
 | - Release notes | - Frissítés jegyzék |
 | - Activity Bar and SideBar | - Tevékenység sáv és Oldalsáv |
 | - Status Bar button that fixes an error in a given file with Copilot | - Állapotsor gomb ami hibát javít az adott fájlban Copilottal |
+| - Picture Gallery for selecting an image to Magic Panel  | - Képgaléria egy kép kiválasztásához a Magic Panel-hez |
 | **🔜 More features to come!** | **🔜 Még több funkció hamarosan!** |
 
 <div align="center">
@@ -65,9 +66,29 @@
 
 ### Activity Bar & Sidebar / Tevékenység sáv és Oldalsáv
 
-<img src="images/activity_bar_and_sidebar_dark.png" alt="Scarlet Witch Theme activity bar and sidebar (Dark)" style="width: 50%; height: auto;">
+<img src="images/activity_bar_and_sidebar_dark.png" alt="Scarlet Witch Theme Activity Bar and Sidebar (Dark)" style="width: 50%; height: auto;">
 
-<img src="images/activity_bar_and_sidebar_light.png" alt="Scarlet Witch Theme activity bar and sidebar (Light)" style="width: 50%; height: auto;">
+<img src="images/activity_bar_and_sidebar_light.png" alt="Scarlet Witch Theme Activity Bar and Sidebar (Light)" style="width: 50%; height: auto;">
+
+</div>
+
+<div align="center">
+
+### Picture Gallery / Képgaléria
+
+<img src="images/picture_gallery_dark.png" alt="Scarlet Witch Theme Picture Gallery (Dark)">
+
+<img src="images/picture_gallery_light.png" alt="Scarlet Witch Theme Picture Gallery (Light)">
+
+</div>
+
+<div align="center">
+
+### No More Errors! panel
+
+<img src="images/no_more_errors_panel_dark.gif" alt="Scarlet Witch Theme No More Errors! panel (Dark)">
+
+<img src="images/no_more_errors_panel_light.gif" alt="Scarlet Witch Theme No More Errors! panel (Light)">
 
 </div>
 

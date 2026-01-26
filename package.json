@@ -2,7 +2,7 @@
   "name": "scarlet-witch-theme",
   "displayName": "Scarlet Witch Theme",
   "description": "A fan-made VS Code theme inspired by Scarlet Witch.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "BoBenc",
   "icon": "images/logo.png",
   "repository": {
@@ -37,13 +37,18 @@
     ],
     "commands": [
       {
-        "title": "Scarlet Witch Theme: ShowWelcome",
+        "title": "ShowWelcome",
         "command": "scarlet-witch-theme.showWelcome",
         "category": "Scarlet Witch Theme"
       },
       {
-        "title": "Scarlet Witch Theme: ShowReleaseNotes",
+        "title": "ShowReleaseNotes",
         "command": "scarlet-witch-theme.showReleaseNotes",
+        "category": "Scarlet Witch Theme"
+      },
+      {
+        "title": "ShowPictureGallery",
+        "command": "scarlet-witch-theme.showPictureGallery",
         "category": "Scarlet Witch Theme"
       },
       {
