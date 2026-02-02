@@ -287,24 +287,12 @@ export function showReleaseNotesPanel(
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Picture Gallery panel added</strong>
-                            <span>New Picture Gallery panel for easy image selection.</span>
+                            <strong>🖼️ Upload your images</strong>
+                            <span>You can upload your own .png image to Picture Gallery panel.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔗 Images</strong>
-                            <span>You can select an image from Picture Gallery to No More Errors! panel.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>💬 Speech Bubble</strong>
-                            <span>You can switch on/off Speech Bubble from Picture Gallery panel.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🗄️ Activity Bar & Sidebar got a new button</strong>
-                            <span>New button added.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🔥 No More Errors! panel rework</strong>
-                            <span>Competely redesigned No More Errors! panel.</span>
+                            <strong>🗑️ Delete your images</strong>
+                            <span>You can delete uploaded images from Picture Gallery panel.</span>
                         </div>
                     </div>
 
@@ -331,24 +319,12 @@ export function showReleaseNotesPanel(
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Képgaléria panel hozzáadva</strong>
-                            <span>Új Képgaléria panel a képválasztáshoz.</span>
+                            <strong>🖼️ Feltöltheted a képeid</strong>
+                            <span>Feltöltheted a saját .png képed a Képgaléria panelre.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔗 Választhatsz képet a Képgalériából a No More Errors! panelhez</strong>
-                            <span>Most már van lehetőség kiválasztani, hogy melyik kép jelenjen meg a No More Errors! panelen.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>💬 Beszédbuborék</strong>
-                            <span>Be- és kikapcsolhatod a Beszédbuborékot a Képgaléria panelen.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot</strong>
-                            <span>Új gomb amivel a képgaléria nyílik meg.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🔥 No More Errors! panel újragondolva</strong>
-                            <span>Újragondolva a No More Errors! panel.</span>
+                            <strong>🗑️ Törölheted a képeid</strong>
+                            <span>Törölheted a feltöltött képeket a Képgaléria panelről.</span>
                         </div>
                     </div>
 

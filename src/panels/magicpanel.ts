@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import * as fs from 'fs';
 import { getSelectedImageFile, isBubbleEnabled } from './picturegallerypanel';
 
 const DARK_THEME = {
@@ -33,20 +34,26 @@ export async function showMagicPanel(context: vscode.ExtensionContext): Promise<
             {
                 enableScripts: true,
                 localResourceRoots: [
-                    vscode.Uri.file(path.join(context.extensionPath, 'images/picture-gallery'))
+                    vscode.Uri.file(path.join(context.extensionPath, 'images/picture-gallery')),
+                    context.globalStorageUri
                 ]
             }
         );
 
         const selectedImage = getSelectedImageFile(context) || 'scarlet-witch-crown-sticker.png';
 
-        const imageUri = panel.webview.asWebviewUri(
-            vscode.Uri.joinPath(
-                context.extensionUri,
-                'images/picture-gallery',
-                selectedImage
-            )
-        );
+        let imageUri: vscode.Uri;
+
+        const userImagePath = vscode.Uri.joinPath(context.globalStorageUri, selectedImage);
+        const userImageFsPath = userImagePath.fsPath;
+
+        if (fs.existsSync(userImageFsPath)) {
+            imageUri = userImagePath;
+        } else {
+            imageUri = vscode.Uri.joinPath(context.extensionUri, 'images/picture-gallery', selectedImage);
+        }
+
+        const imageWebviewUri = panel.webview.asWebviewUri(imageUri);
 
         const showBubble = isBubbleEnabled(context);
 
@@ -61,7 +68,7 @@ export async function showMagicPanel(context: vscode.ExtensionContext): Promise<
 
         panel.iconPath = logoUri;
 
-        panel.webview.html = getWebviewContent(imageUri.toString(), colors, showBubble);
+        panel.webview.html = getWebviewContent(imageWebviewUri.toString(), colors, showBubble);
 
         panel.webview.onDidReceiveMessage((message) => {
             if (message.command === 'animationFinished') {

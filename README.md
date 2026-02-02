@@ -22,6 +22,7 @@
 | - Activity Bar and SideBar | - Tevékenység sáv és Oldalsáv |
 | - Status Bar button that fixes an error in a given file with Copilot | - Állapotsor gomb ami hibát javít az adott fájlban Copilottal |
 | - Picture Gallery for selecting an image to Magic Panel  | - Képgaléria egy kép kiválasztásához a Magic Panel-hez |
+| - Upload your own images to Picture Gallery | - Saját képek feltöltése a Képgalériába |
 | **🔜 More features to come!** | **🔜 Még több funkció hamarosan!** |
 
 <div align="center">
@@ -106,3 +107,4 @@
 | Created for personal use purposes. 🆓| Személyes használatra készült. 🆓 |
 | Artificial Intelligence generated images. 🤖 | Mesterséges Intelligencia által generált képek. 🤖 |
 | Using the Status Bar button reduces Copilot chat volume. ⬇️ | Állapotsor gombbal a Copilot üzenet mennyiségét használja. ⬇️|
+| Your upload images are stored in your computer only. 🖼️ | A feltöltött képek csak a számítógépeden tárolódnak. 🖼️ |

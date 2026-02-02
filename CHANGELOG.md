@@ -43,3 +43,15 @@ Changes in my project.
 - Welcome Panel
 - Release Notes Panel
 - Magic Panel
+
+## 0.0.6
+### Added
+- Upload image functionality in Picture Gallery panel
+- Delete image functionality in Picture Gallery panel
+
+### Changed
+- README.md
+- Welcome Panel
+- Release Notes Panel
+- Magic Panel
+- Picture Gallery Panel

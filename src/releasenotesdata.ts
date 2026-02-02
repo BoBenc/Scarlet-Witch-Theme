@@ -13,6 +13,24 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.6',
+        date: '2026-02-02',
+        title: {
+            en: 'Images',
+            hu: 'Képek'
+        },
+        changes: {
+            en: [
+                '🖼️ You can upload your own .png image to Picture Gallery panel',
+                '🗑️ You can delete uploaded images from Picture Gallery panel'
+            ],
+            hu: [
+                '🖼️ Feltöltheted a saját .png képed a Képgaléria panelre',
+                '🗑️ Törölheted a feltöltött képeket a Képgaléria panelről'
+            ]
+        }
+    },
+    {
         version: '0.0.5',
         date: '2026-01-26',
         title: {
