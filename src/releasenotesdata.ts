@@ -13,6 +13,30 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.7',
+        date: '2026-02-07',
+        title: {
+            en: 'The Darkhold',
+            hu: 'A Setét Könyv'
+        },
+        changes: {
+            en: [
+                '📘 Darkhold panel added',
+                '💾 Save your Darkhold spells to files',
+                '🔥 Delete all records in the Darkhold with one click',
+                '✨ Auto-save functionality in the Darkhold',
+                '🗄️ Activity Bar & Sidebar got a new button'
+            ],
+            hu: [
+                '📘 Setét Könyv panel hozzáadva',
+                '💾 Mentsd el Setét Könyv varázslataidat fájlokba',
+                '🔥 Egy kattintásra törölheted a Setét Könyv összes bejegyzését',
+                '✨ Automatikus mentés funkció a Setét Könyvben',
+                '🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot'
+            ]
+        }
+    },
+    {
         version: '0.0.6',
         date: '2026-02-02',
         title: {

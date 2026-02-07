@@ -55,3 +55,14 @@ Changes in my project.
 - Release Notes Panel
 - Magic Panel
 - Picture Gallery Panel
+
+## 0.0.7
+### Added
+- Darkhold panel
+- Auto save in Darkhold panel
+- Save Darkhold panel texts
+- Delete Darkhold panel texts
+
+### Changed
+- README.md
+- Release Notes Panel

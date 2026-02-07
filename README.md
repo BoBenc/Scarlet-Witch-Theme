@@ -23,6 +23,7 @@
 | - Status Bar button that fixes an error in a given file with Copilot | - Állapotsor gomb ami hibát javít az adott fájlban Copilottal |
 | - Picture Gallery for selecting an image to Magic Panel  | - Képgaléria egy kép kiválasztásához a Magic Panel-hez |
 | - Upload your own images to Picture Gallery | - Saját képek feltöltése a Képgalériába |
+|- Darkhold for write your forbidden chaos magic spells | - Setét Könyv, hogy leírhasd tiltott káosz mágia igéidet|
 | **🔜 More features to come!** | **🔜 Még több funkció hamarosan!** |
 
 <div align="center">
@@ -93,6 +94,14 @@
 
 </div>
 
+<div align="center">
+
+### Darkhold / Setét Könyv
+
+<img src="images/darkhold.png" alt="Scarlet Witch Theme Darkhold panel">
+
+</div>
+
 ---
 
 <div align="center">
@@ -108,3 +117,4 @@
 | Artificial Intelligence generated images. 🤖 | Mesterséges Intelligencia által generált képek. 🤖 |
 | Using the Status Bar button reduces Copilot chat volume. ⬇️ | Állapotsor gombbal a Copilot üzenet mennyiségét használja. ⬇️|
 | Your upload images are stored in your computer only. 🖼️ | A feltöltött képek csak a számítógépeden tárolódnak. 🖼️ |
+| Your Darkhold notes are stored in your computer only. 🔒 | Setét Könyv jegyzeteid csak helyben tárolódnak. 🔒 |

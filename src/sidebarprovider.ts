@@ -36,6 +36,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         vscode.commands.executeCommand('scarlet-witch-theme.showPictureGallery');
                         break;
                     }
+                    case 'openDarkhold': {
+                        vscode.commands.executeCommand('scarlet-witch-theme.openDarkhold');
+                        break;
+                    }
                     case 'ready': {
                         break;
                     }
@@ -170,6 +174,20 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         transform: translateY(-1px);
                     }
 
+                    .btn-darkhold {
+                        background: linear-gradient(135deg, #2b201e 0%, #1a1614 100%);
+                        color: #dcd0c0;
+                        border: 1px solid #5c4a42;
+                    }
+
+                    .btn-darkhold:hover {
+                        background: linear-gradient(135deg, #3d2b1f 0%, #2b201e 100%);
+                        color: #ff3333;
+                        box-shadow: 0 4px 15px rgba(92, 74, 66, 0.5);
+                        transform: translateY(-3px) scale(1.02);
+                        border-color: #ff3333;
+                    }
+
                     .btn::before {
                         content: '';
                         position: absolute;
@@ -229,6 +247,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         <span>🖼️</span>
                         Picture Gallery
                     </button>
+                    <button id="darkholdBtn" class="btn btn-darkhold">
+                        <span>📘</span>
+                        Darkhold
+                    </button>
                 </div>
 
                 <div class="section">
@@ -242,6 +264,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     const releaseNotesBtn = document.getElementById('releaseNotesBtn');
                     const welcomeBtn = document.getElementById('welcomeBtn');
                     const pictureBtn = document.getElementById('pictureBtn');
+                    const darkholdBtn = document.getElementById('darkholdBtn');
 
                     try {
                         vscode = acquireVsCodeApi();
@@ -273,6 +296,16 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         if (vscode) {
                             vscode.postMessage({
                                 type: 'openPictureGallery'
+                            });
+                        } else {
+                            console.error('❌ VSCode API not available');
+                        }
+                    });
+
+                    darkholdBtn.addEventListener('click', () => {
+                        if (vscode) {
+                            vscode.postMessage({
+                                type: 'openDarkhold'
                             });
                         } else {
                             console.error('❌ VSCode API not available');

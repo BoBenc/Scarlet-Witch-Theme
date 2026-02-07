@@ -2,10 +2,11 @@ import * as vscode from 'vscode';
 import { showWelcomePanel } from './panels/welcomepanel';
 import { showReleaseNotesPanel } from './panels/releasenotespanel';
 import { showReleaseNotesFullPanel } from './panels/releasenotescollection';
-import { PictureGalleryPanel, showPictureGalleryPanel } from './panels/picturegallerypanel';
+import { showPictureGalleryPanel } from './panels/picturegallerypanel';
 import { SidebarProvider } from './sidebarprovider';
 import { createStatusBarItem } from './statusbaritem';
 import { registerCopilotCommand } from './copilotcommand';
+import { showDarkholdPanel } from './panels/darkholdpanel';
 
 export async function activate(context: vscode.ExtensionContext) {
     const currentVersion = context.extension.packageJSON.version;
@@ -55,7 +56,14 @@ function registerCommands(context: vscode.ExtensionContext) {
         }
     );
 
-    context.subscriptions.push(welcomeCommand, releaseNotesCommand, pictureGalleryCommand);
+    let openDarkholdCommand = vscode.commands.registerCommand(
+        'scarlet-witch-theme.openDarkhold',
+        () => {
+            showDarkholdPanel(context.extensionUri, context);
+        }
+    );
+
+    context.subscriptions.push(welcomeCommand, releaseNotesCommand, pictureGalleryCommand, openDarkholdCommand);
 }
 
 export function deactivate() {

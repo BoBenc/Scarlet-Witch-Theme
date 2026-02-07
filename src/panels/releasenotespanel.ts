@@ -287,12 +287,24 @@ export function showReleaseNotesPanel(
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Upload your images</strong>
-                            <span>You can upload your own .png image to Picture Gallery panel.</span>
+                            <strong>📘 Darkhold panel</strong>
+                            <span>Write forbidden chaos magic spells onto the ancient Book of the Damned.</span>
                         </div>
                         <div class="feature">
-                            <strong>🗑️ Delete your images</strong>
-                            <span>You can delete uploaded images from Picture Gallery panel.</span>
+                            <strong>💾 Save your Darkhold spells to files</strong>
+                            <span>Export your Dakhold incantations to .txt files.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🔥 Delete all records in the Darkhold</strong>
+                            <span>Delete all Darkhold entries with one click.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>✨ Auto-save functionality in the Darkhold</strong>
+                            <span>Your forbidden knowledge is automatically preserved across sessions.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🗄️ Activity Bar & Sidebar got a new button</strong>
+                            <span>New Darkhold button added to Activity Bar & Sidebar.</span>
                         </div>
                     </div>
 
@@ -319,12 +331,24 @@ export function showReleaseNotesPanel(
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>🖼️ Feltöltheted a képeid</strong>
-                            <span>Feltöltheted a saját .png képed a Képgaléria panelre.</span>
+                            <strong>📘 Setét Könyv panel</strong>
+                            <span>Írj tiltott káoszmágia varázslatokat a Kárhozottak Könyvébe.</span>
                         </div>
                         <div class="feature">
-                            <strong>🗑️ Törölheted a képeid</strong>
-                            <span>Törölheted a feltöltött képeket a Képgaléria panelről.</span>
+                            <strong>💾 Mentsd el Setét Könyv varázslataidat fájlokba</strong>
+                            <span>Mentsd ki a Setét Könyv tartalmát .txt fájlokba.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🔥 Setét Könyv megsemmisítése</strong>
+                            <span>Egy kattintással törölheted a Setét Könyv tartalmát.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>✨ Automatikus mentés funkció a Setét Könyvben</strong>
+                            <span>Tiltott tudásod minden munkamenetben automatikusan megmarad.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot</strong>
+                            <span>Új Darkhold gomb található meg a Tevékenység sáv & Oldalsáv gombjai között.</span>
                         </div>
                     </div>
 

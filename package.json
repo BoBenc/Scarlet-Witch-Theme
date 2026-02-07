@@ -2,7 +2,7 @@
   "name": "scarlet-witch-theme",
   "displayName": "Scarlet Witch Theme",
   "description": "A fan-made VS Code theme inspired by Scarlet Witch.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "BoBenc",
   "icon": "images/logo.png",
   "repository": {
@@ -54,6 +54,11 @@
       {
         "title": "Fix all errors with Chaos Magic!",
         "command": "scarlet-witch-theme.copilotCommand",
+        "category": "Scarlet Witch Theme"
+      },
+      {
+        "title": "Darkhold",
+        "command": "scarlet-witch-theme.openDarkhold",
         "category": "Scarlet Witch Theme"
       }
     ],
