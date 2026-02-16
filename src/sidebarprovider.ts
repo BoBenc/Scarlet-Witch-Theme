@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { openStorageFolder } from './utils/openstoragefolder';
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
     public static readonly viewType = 'scarlet-witch-sidebar';
@@ -38,6 +39,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     }
                     case 'openDarkhold': {
                         vscode.commands.executeCommand('scarlet-witch-theme.openDarkhold');
+                        break;
+                    }
+                    case 'openStorageFolder': {
+                        openStorageFolder(this.context.globalStorageUri);
                         break;
                     }
                     case 'ready': {
@@ -188,6 +193,21 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         border-color: #ff3333;
                     }
 
+                    .btn-storage {
+                        background: linear-gradient(135deg, #4a3b32 0%, #2e241f 100%);
+                        color: #d4af37;
+                        border: 1px solid #8c6a4f;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .btn-storage:hover {
+                        background: linear-gradient(135deg, #5c4a42 0%, #3d2b25 100%);
+                        color: #ffecd1;
+                        transform: translateY(-3px) scale(1.02);
+                        border-color: #d4af37;
+                        box-shadow: 0 6px 20px rgba(92, 74, 66, 0.4);
+                    }
+
                     .btn::before {
                         content: '';
                         position: absolute;
@@ -254,6 +274,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                 </div>
 
                 <div class="section">
+                    <div class="section-title">Local Files</div>
+                    <button id="storageBtn" class="btn btn-storage">
+                        <span>📁</span>
+                        Storage
+                    </button>
+                </div>
+
+                <div class="section">
                     <div class="info-box">
                         <strong>🎉 Enjoy! 🎉</strong>
                     </div>
@@ -265,6 +293,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     const welcomeBtn = document.getElementById('welcomeBtn');
                     const pictureBtn = document.getElementById('pictureBtn');
                     const darkholdBtn = document.getElementById('darkholdBtn');
+                    const storageBtn = document.getElementById('storageBtn');
 
                     try {
                         vscode = acquireVsCodeApi();
@@ -306,6 +335,16 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         if (vscode) {
                             vscode.postMessage({
                                 type: 'openDarkhold'
+                            });
+                        } else {
+                            console.error('❌ VSCode API not available');
+                        }
+                    });
+
+                    storageBtn.addEventListener('click', () => {
+                        if (vscode) {
+                            vscode.postMessage({ 
+                                type: 'openStorageFolder'
                             });
                         } else {
                             console.error('❌ VSCode API not available');

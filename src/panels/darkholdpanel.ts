@@ -1,22 +1,29 @@
 import * as vscode from "vscode";
+import { createDoc } from "../utils/docgenerator";
+import { createPdf } from "../utils/pdfgenerator";
 
 export class DarkholdPanel {
     public static currentPanel: DarkholdPanel | undefined;
     private readonly panel: vscode.WebviewPanel;
     private readonly extensionUri: vscode.Uri;
-    private readonly globalState: vscode.Memento;
+    private readonly globalStorageUri: vscode.Uri;
     private disposables: vscode.Disposable[] = [];
 
-    private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri, globalState: vscode.Memento) {
+    private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri, globalStorageUri: vscode.Uri) {
         this.panel = panel;
         this.extensionUri = extensionUri;
-        this.globalState = globalState;
+        this.globalStorageUri = globalStorageUri;
 
         this.updateTitle(true);
+        this.loadFromGlobalStorage();
 
         this.panel.onDidChangeViewState(
             e => {
+                const isActive = e.webviewPanel.active;
                 this.updateTitle(e.webviewPanel.active);
+                if (isActive) {
+                    this.loadFromGlobalStorage();
+                }
             },
             null,
             this.disposables
@@ -29,11 +36,11 @@ export class DarkholdPanel {
             async (message) => {
                 switch (message.command) {
                     case "save":
-                        await this.saveContent(message.text);
+                        await this.exportContent(message.text);
                         return;
 
                     case "autoSave":
-                        await this.globalState.update('darkhold_content', message.text);
+                        await this.saveToGlobalStorage(message.text);
                         return;
 
                     case "askDelete":
@@ -44,7 +51,7 @@ export class DarkholdPanel {
                             'No'
                         );
                         if (answer === 'Yes') {
-                            await this.globalState.update('darkhold_content', '');
+                            await this.saveToGlobalStorage('');
                             this.panel.webview.postMessage({ command: 'clearEditor' });
                         }
                         return;
@@ -57,6 +64,74 @@ export class DarkholdPanel {
             null,
             this.disposables
         );
+    }
+
+    private getDarkHoldFileUri(): vscode.Uri {
+        return vscode.Uri.joinPath(this.globalStorageUri, 'scarlet-witch-theme.darkhold');
+    }
+
+    private async loadFromGlobalStorage() {
+        const fileUri = this.getDarkHoldFileUri();
+        try {
+            const fileData = await vscode.workspace.fs.readFile(fileUri);
+            const content = Buffer.from(fileData).toString('utf8');
+            this.panel.webview.postMessage({ command: 'refresh', text: content });
+        } catch (error) {
+            vscode.window.showErrorMessage("No existing Darkhold content found, starting fresh!");
+        }
+    }
+
+    private async saveToGlobalStorage(content: string) {
+        const fileUri = this.getDarkHoldFileUri();
+        try {
+            await vscode.workspace.fs.createDirectory(this.globalStorageUri);
+            const data = Buffer.from(content, 'utf8');
+            await vscode.workspace.fs.writeFile(fileUri, data);
+        } catch (error) {
+            vscode.window.showErrorMessage("Failed to save Darkhold content.");
+        }
+    }
+
+    private async exportContent(content: string) {
+        if (!content) {
+            vscode.window.showErrorMessage("The Darkhold is empty, nothing to save!");
+            return;
+        }
+
+        const uri = await vscode.window.showSaveDialog({
+            saveLabel: "Save the Darkhold",
+            filters: {
+                "Text file (.txt)": ["txt"],
+                "Document (.doc)": ["doc"],
+                "PDF file (.pdf)": ["pdf"],
+                "All files": ["*"]
+            }
+        });
+
+        if (uri) {
+            try {
+                const extension = uri.fsPath.split('.').pop()?.toLowerCase();
+                let buffer: Uint8Array;
+
+                if (extension === 'doc') {
+                    const docContent = createDoc(content);
+                    buffer = Buffer.from(docContent, "utf8");
+
+                } else if (extension === 'pdf') {
+                    const pdfContent = createPdf(content);
+                    buffer = Buffer.from(pdfContent, "binary");
+
+                } else {
+                    buffer = Buffer.from(content, "utf8");
+                }
+
+                await vscode.workspace.fs.writeFile(uri, buffer);
+                vscode.window.showInformationMessage(`Darkhold content saved successfully! -> ${uri.fsPath}`);
+
+            } catch (err) {
+                vscode.window.showErrorMessage("Failed to save Darkhold content: " + err);
+            }
+        }
     }
 
     private updateTitle(isActive: boolean) {
@@ -92,31 +167,7 @@ export class DarkholdPanel {
         const logoUri = vscode.Uri.joinPath(context.extensionUri, 'images', 'logo.png');
         panel.iconPath = logoUri;
 
-        DarkholdPanel.currentPanel = new DarkholdPanel(panel, extensionUri, context.globalState);
-    }
-
-    private async saveContent(content: string) {
-        if (!content) {
-            vscode.window.showErrorMessage("The Darkhold is empty, nothing to save!");
-            return;
-        }
-
-        const uri = await vscode.window.showSaveDialog({
-            saveLabel: "Save the Darkhold",
-            filters: {
-                "Text file": [".txt"],
-                "All files": ["*"]
-            }
-        });
-
-        if (uri) {
-            try {
-                await vscode.workspace.fs.writeFile(uri, Buffer.from(content, "utf8"));
-                vscode.window.showInformationMessage("Darkhold content saved successfully!");
-            } catch (err) {
-                vscode.window.showErrorMessage("Failed to save Darkhold content: " + err);
-            }
-        }
+        DarkholdPanel.currentPanel = new DarkholdPanel(panel, extensionUri, context.globalStorageUri);
     }
 
     public dispose() {
@@ -132,10 +183,6 @@ export class DarkholdPanel {
 
     private getHtml(webview: vscode.Webview): string {
         const imageUri = webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, 'images', 'scarlet_witch_sigil.png'));
-
-        let savedContent = this.globalState.get<string>('darkhold_content', '');
-
-        savedContent = savedContent.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
 
         return `
         <!DOCTYPE html>
@@ -511,7 +558,7 @@ export class DarkholdPanel {
                             <div class="editor">
                                 <div class="lines-background"></div>
                                 <div class="textarea-wrapper">
-                                    <textarea id="darkhold-text" placeholder="✏️ Write onto the pages of forbidden knowledge...">${savedContent}</textarea>
+                                    <textarea id="darkhold-text" placeholder="✏️ Write onto the pages of forbidden knowledge..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -537,24 +584,82 @@ export class DarkholdPanel {
 
             <script>
                 const vscode = acquireVsCodeApi();
+                
                 const textarea = document.getElementById('darkhold-text');
                 const wordCountEl = document.getElementById('word-count');
                 const charCountEl = document.getElementById('char-count');
                 const saveBtn = document.getElementById('save-btn');
                 const clearBtn = document.getElementById('clear-btn');
+                
+                let typingTimer;
+
+                function updateVisuals() {
+                    if (!textarea) return;
+                    
+                    const text = textarea.value;
+                    const words = text.trim() === '' ? 0 : text.trim().split(/\\s+/).length;
+                    const chars = text.length;
+                    
+                    if (wordCountEl) wordCountEl.textContent = words;
+                    if (charCountEl) charCountEl.textContent = chars;
+                }
+
+                function triggerAutoSave() {
+                    const text = textarea.value;
+                    vscode.postMessage({ command: 'autoSave', text: text });
+                }
+
+                if (textarea) {
+                    textarea.addEventListener('input', function() {
+                        updateVisuals();
+                        clearTimeout(typingTimer);
+                        typingTimer = setTimeout(triggerAutoSave, 100);
+                    });
+
+                    textarea.addEventListener('blur', function() {
+                        triggerAutoSave();
+                    });
+                }
 
                 window.addEventListener('message', event => {
                     const message = event.data;
                     switch (message.command) {
+                        case 'refresh':
+                            if (textarea) {
+                                textarea.value = message.text;
+                                updateVisuals();
+                            }
+                            break;
+
                         case 'clearEditor':
-                            textarea.value = '';
-                            updateCounts();
+                            if (textarea) textarea.value = '';
+                            updateVisuals();
                             break;
                     }
                 });
 
+                if (saveBtn) {
+                    saveBtn.addEventListener('click', () => {
+                        triggerAutoSave();
+                        const text = textarea.value;
+                        if(!text.trim()) {
+                            vscode.postMessage({ command: 'warning', text: 'The Darkhold is empty!' });
+                            return;
+                        }
+                        vscode.postMessage({ command: 'save', text: text });
+                    });
+                }
+
+                if (clearBtn) {
+                    clearBtn.addEventListener('click', () => {
+                        if (!textarea.value.trim()) return;
+                        vscode.postMessage({ command: 'askDelete' });
+                    });
+                }
+
                 function generateBurnParticles() {
                     const container = document.getElementById('burnEdges');
+                    if (!container) return;
                     container.innerHTML = '';
                     const createPart = (cls, props) => {
                         const p = document.createElement('div');
@@ -568,33 +673,7 @@ export class DarkholdPanel {
                     for(let i=0; i<8; i++) createPart('burn-particle', {width: (Math.random()*20+10)+'px', height:(Math.random()*20+10)+'px', bottom:(Math.random()*30-10)+'px', left:(Math.random()*100)+'%'});
                 }
                 generateBurnParticles();
-
-                function updateCounts() {
-                    const text = textarea.value;
-                    const words = text.trim().split(/\\s+/).filter(w => w.length > 0).length;
-                    const chars = text.length;
-                    wordCountEl.textContent = words;
-                    charCountEl.textContent = chars;
-                    
-                    vscode.postMessage({ command: 'autoSave', text: text });
-                }
-
-                saveBtn.addEventListener('click', () => {
-                    const text = textarea.value;
-                    if(!text.trim()) {
-                        vscode.postMessage({ command: 'warning', text: 'The Darkhold is empty, nothing to save!' });
-                        return;
-                    }
-                    vscode.postMessage({ command: 'save', text: text });
-                });
-
-                clearBtn.addEventListener('click', () => {
-                    if (!textarea.value.trim()) return;
-                    vscode.postMessage({ command: 'askDelete' });
-                });
-
-                textarea.addEventListener('input', updateCounts);
-                updateCounts();
+                updateVisuals();
             </script>
         </body>
         </html>`;

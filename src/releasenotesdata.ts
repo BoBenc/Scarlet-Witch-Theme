@@ -13,6 +13,30 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.8',
+        date: '2026-02-16',
+        title: {
+            en: 'The Darkhold update',
+            hu: 'A Setét Könyv frissítés'
+        },
+        changes: {
+            en: [
+                '📘 Darkhold panel bug fixes and stability improvments',
+                '📁 Direct access: Open your local storage folder with one click',
+                '💾 Save your Darkhold spells in both .doc and .pdf files',
+                '🆕 Migrated from internal state to physical .darkhold files',
+                '🗄️ Activity Bar & Sidebar got a new button'
+            ],
+            hu: [
+                '📘 Setét Könyv panel hibajavítások és fejlesztések',
+                '📁 Közvetlen hozzáférés: Nyisd meg a helyi tárhely mappádat egy kattintással',
+                '💾 Mentsd el Setét Könyv varázslataidat .doc és .pdf fájlokba is',
+                '🆕 Átállás belső állapotról fizikai .darkhold fájlokra',
+                '🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot'
+            ]
+        }
+    },
+    {
         version: '0.0.7',
         date: '2026-02-07',
         title: {

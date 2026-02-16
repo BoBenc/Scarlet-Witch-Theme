@@ -66,3 +66,16 @@ Changes in my project.
 ### Changed
 - README.md
 - Release Notes Panel
+
+## 0.0.8
+### Added
+- Direct access: Open your local storage folder with one click
+- Save your Darkhold spells in both .doc and .pdf files
+- Migrated from internal state to physical .darkhold files
+
+### Changed
+- README.md
+- Release Notes Panel
+
+### Fixed
+- Darkhold panel bug fixes and stability improvments

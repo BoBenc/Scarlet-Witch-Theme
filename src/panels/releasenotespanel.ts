@@ -287,24 +287,24 @@ export function showReleaseNotesPanel(
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>📘 Darkhold panel</strong>
-                            <span>Write forbidden chaos magic spells onto the ancient Book of the Damned.</span>
+                            <strong>📘 Darkhold bug fixes and stability improvments</strong>
+                            <span>Fixed several issues that could cause Darkhold data not to save reliably.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>📁 Local Storage</strong>
+                            <span>Direct access: Open your local storage folder with one click.</span>
                         </div>
                         <div class="feature">
                             <strong>💾 Save your Darkhold spells to files</strong>
-                            <span>Export your Dakhold incantations to .txt files.</span>
+                            <span>Export your Dakhold incantations to .doc and .pdf files.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔥 Delete all records in the Darkhold</strong>
-                            <span>Delete all Darkhold entries with one click.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>✨ Auto-save functionality in the Darkhold</strong>
-                            <span>Your forbidden knowledge is automatically preserved across sessions.</span>
+                            <strong>🆕 Physical files</strong>
+                            <span>Migrated from internal state to physical .darkhold files.</span>
                         </div>
                         <div class="feature">
                             <strong>🗄️ Activity Bar & Sidebar got a new button</strong>
-                            <span>New Darkhold button added to Activity Bar & Sidebar.</span>
+                            <span>Access the local storage with a dedicated button.</span>
                         </div>
                     </div>
 
@@ -331,24 +331,24 @@ export function showReleaseNotesPanel(
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>📘 Setét Könyv panel</strong>
-                            <span>Írj tiltott káoszmágia varázslatokat a Kárhozottak Könyvébe.</span>
+                            <strong>📘 Setét Könyv hibajavítások és fejlesztések</strong>
+                            <span>Hibák javítva amelyek miatt a Setét Könyv adatok nem mentődtek megbízhatóan.</span>
+                        </div>
+                        <div class="feature">
+                            <strong>📁 Helyi mappa</strong>
+                            <span>Nyisd meg a helyi tárhely mappádat egy kattintással.</span>
                         </div>
                         <div class="feature">
                             <strong>💾 Mentsd el Setét Könyv varázslataidat fájlokba</strong>
-                            <span>Mentsd ki a Setét Könyv tartalmát .txt fájlokba.</span>
+                            <span>Mentsd ki a Setét Könyv tartalmát .doc és .pdf fájlokba.</span>
                         </div>
                         <div class="feature">
-                            <strong>🔥 Setét Könyv megsemmisítése</strong>
-                            <span>Egy kattintással törölheted a Setét Könyv tartalmát.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>✨ Automatikus mentés funkció a Setét Könyvben</strong>
-                            <span>Tiltott tudásod minden munkamenetben automatikusan megmarad.</span>
+                            <strong>🆕 Fizikai fájlok</strong>
+                            <span>Átállás belső állapotról fizikai .darkhold fájlokra.</span>
                         </div>
                         <div class="feature">
                             <strong>🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot</strong>
-                            <span>Új Darkhold gomb található meg a Tevékenység sáv & Oldalsáv gombjai között.</span>
+                            <span>A helyi tárolóhoz egy új gombbal sokkal gyorsabban férhetsz hozzá.</span>
                         </div>
                     </div>
 
