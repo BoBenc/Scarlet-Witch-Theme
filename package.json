@@ -2,7 +2,7 @@
   "name": "scarlet-witch-theme",
   "displayName": "Scarlet Witch Theme",
   "description": "A fan-made VS Code theme inspired by Scarlet Witch.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publisher": "BoBenc",
   "icon": "images/logo.png",
   "repository": {
@@ -80,6 +80,21 @@
           "icon": "images/logo.png"
         }
       ]
+    },
+    "configuration": {
+      "title": "Scarlet Witch Chaos Magic",
+      "properties": {
+        "scarlet-witch-theme.cursorMagic": {
+          "type": "boolean",
+          "default": true,
+          "description": "Chaos Magic features for the cursor."
+        },
+        "scarlet-witch-theme.typingMagic": {
+          "type": "boolean",
+          "default": true,
+          "description": "Chaos Magic features while typing."
+        }
+      }
     }
   },
   "scripts": {

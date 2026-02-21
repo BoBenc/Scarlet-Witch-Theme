@@ -79,3 +79,13 @@ Changes in my project.
 
 ### Fixed
 - Darkhold panel bug fixes and stability improvments
+
+## 0.0.9
+### Added
+- Chaos Magic features for the cursor and while typing
+
+### Changed
+- README.md
+- Release Notes Panel
+- Sidebar
+- Light & Dark themes

@@ -7,6 +7,8 @@ import { SidebarProvider } from './sidebarprovider';
 import { createStatusBarItem } from './statusbaritem';
 import { registerCopilotCommand } from './copilotcommand';
 import { showDarkholdPanel } from './panels/darkholdpanel';
+import { enableCursorMagic, disableCursorMagic } from './utils/cursormagic';
+import { enableTypingMagic, disableTypingMagic } from './utils/typingmagic';
 
 export async function activate(context: vscode.ExtensionContext) {
     const currentVersion = context.extension.packageJSON.version;
@@ -32,6 +34,32 @@ export async function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(createStatusBarItem(context), registerCopilotCommand(context));
+
+    function updateMagicFeatures() {
+        const config = vscode.workspace.getConfiguration('scarlet-witch-theme');
+        
+        if (config.get('cursorMagic')) {
+            enableCursorMagic(context);
+        } else {
+            disableCursorMagic();
+        }
+
+        if (config.get('typingMagic')) {
+            enableTypingMagic(context);
+        } else {
+            disableTypingMagic();
+        }
+    }
+
+    updateMagicFeatures();
+
+    context.subscriptions.push(
+        vscode.workspace.onDidChangeConfiguration(e => {
+            if (e.affectsConfiguration('scarlet-witch-theme')) {
+                updateMagicFeatures();
+            }
+        })
+    );
 }
 
 function registerCommands(context: vscode.ExtensionContext) {
@@ -67,5 +95,7 @@ function registerCommands(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {
+    disableCursorMagic();
+    disableTypingMagic();
     vscode.window.showInformationMessage('🔮 Scarlet Witch Theme deactivated.');
 }

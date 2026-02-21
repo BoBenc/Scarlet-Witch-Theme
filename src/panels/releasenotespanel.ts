@@ -287,24 +287,20 @@ export function showReleaseNotesPanel(
                     <h2>✨ What's New?</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>📘 Darkhold bug fixes and stability improvments</strong>
-                            <span>Fixed several issues that could cause Darkhold data not to save reliably.</span>
+                            <strong>🖱️ Cursor Magic</strong>
+                            <span>Cursor got a new magical effect.</span>
                         </div>
                         <div class="feature">
-                            <strong>📁 Local Storage</strong>
-                            <span>Direct access: Open your local storage folder with one click.</span>
+                            <strong>⌨️ Typing Magic</strong>
+                            <span>Typing in the editor now has a magical effect.</span>
                         </div>
                         <div class="feature">
-                            <strong>💾 Save your Darkhold spells to files</strong>
-                            <span>Export your Dakhold incantations to .doc and .pdf files.</span>
+                            <strong>🪄 Effects can be turned on/off</strong>
+                            <span>Both effects can be turned on/off in the sidebar panel</span>
                         </div>
                         <div class="feature">
-                            <strong>🆕 Physical files</strong>
-                            <span>Migrated from internal state to physical .darkhold files.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🗄️ Activity Bar & Sidebar got a new button</strong>
-                            <span>Access the local storage with a dedicated button.</span>
+                            <strong>🎨 Light & Dark theme</strong>
+                            <span>Extended with new colours.</span>
                         </div>
                     </div>
 
@@ -331,24 +327,20 @@ export function showReleaseNotesPanel(
                     <h2>✨ Újdonságok</h2>
                     <div class="features">
                         <div class="feature">
-                            <strong>📘 Setét Könyv hibajavítások és fejlesztések</strong>
-                            <span>Hibák javítva amelyek miatt a Setét Könyv adatok nem mentődtek megbízhatóan.</span>
+                            <strong>🖱️ Kurzor varázslat</strong>
+                            <span>A kurzor új varázslatos effektet kapott.</span>
                         </div>
                         <div class="feature">
-                            <strong>📁 Helyi mappa</strong>
-                            <span>Nyisd meg a helyi tárhely mappádat egy kattintással.</span>
+                            <strong>⌨️ Gépelés varázslat</strong>
+                            <span>A szerkesztőben való gépelés mostantól varázslatos effektet kapott.</span>
                         </div>
                         <div class="feature">
-                            <strong>💾 Mentsd el Setét Könyv varázslataidat fájlokba</strong>
-                            <span>Mentsd ki a Setét Könyv tartalmát .doc és .pdf fájlokba.</span>
+                            <strong>🪄 Effektek be- és kikapcsolása</strong>
+                            <span>Mindkét effekt be- és kikapcsolható az oldalsáv panelen.</span>
                         </div>
                         <div class="feature">
-                            <strong>🆕 Fizikai fájlok</strong>
-                            <span>Átállás belső állapotról fizikai .darkhold fájlokra.</span>
-                        </div>
-                        <div class="feature">
-                            <strong>🗄️ Tevékenység sáv & Oldalsáv kapott egy új gombot</strong>
-                            <span>A helyi tárolóhoz egy új gombbal sokkal gyorsabban férhetsz hozzá.</span>
+                            <strong>🎨 Világos és sötét téma</strong>
+                            <span>Bővűltek új színekkel.</span>
                         </div>
                     </div>
 

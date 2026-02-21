@@ -23,7 +23,9 @@
 | - Status Bar button that fixes an error in a given file with Copilot | - Állapotsor gomb ami hibát javít az adott fájlban Copilottal |
 | - Picture Gallery for selecting an image to Magic Panel  | - Képgaléria egy kép kiválasztásához a Magic Panel-hez |
 | - Upload your own images to Picture Gallery | - Saját képek feltöltése a Képgalériába |
-|- Darkhold for write your forbidden chaos magic spells | - Setét Könyv, hogy leírhasd tiltott káosz mágia igéidet|
+|- Darkhold for write your forbidden chaos magic spells | - Setét Könyv, hogy leírhasd tiltott káosz mágia igéidet |
+| - Chaos Magic effects around the cursor | -  Káosz mágia effektek a kurzor körül |
+| - Chaos Magic effects while typing | - Káosz mágia effektek gépelés közben |
 | **🔜 More features to come!** | **🔜 Még több funkció hamarosan!** |
 
 <div align="center">
@@ -99,6 +101,16 @@
 ### Darkhold / Setét Könyv
 
 <img src="images/darkhold.png" alt="Scarlet Witch Theme Darkhold panel">
+
+</div>
+
+<div align="center">
+
+### Cursor & Typing magic / Kurzor és gépelési mágia
+
+<img src="images/cursor_and_typing_magic_dark.gif" alt="Scarlet Witch Theme Cursor and Typing magic (Dark)">
+
+<img src="images/cursor_and_typing_magic_light.gif" alt="Scarlet Witch Theme Cursor and Typing magic (Light)">
 
 </div>
 

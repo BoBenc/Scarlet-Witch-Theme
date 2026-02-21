@@ -13,6 +13,28 @@ export interface ReleaseNote {
 
 export const RELEASE_NOTES: ReleaseNote[] = [
     {
+        version: '0.0.9',
+        date: '2026-02-21',
+        title: {
+            en: 'Cursor & Typing magic',
+            hu: 'Kurzor & Gépelés varázslat'
+        },
+        changes: {
+            en: [
+                '🖱️ Cursor got a new magical effect',
+                '⌨️ Typing in the editor now has a magical effect',
+                '🪄 Both effects can be turned on/off in the sidebar panel',
+                '🎨 Light & Dark theme extended with new colours'
+            ],
+            hu: [
+                '🖱️ A kurzor új varázslatos effektet kapott',
+                '⌨️ A szerkesztőben való gépelés mostantól varázslatos effektet kapott',
+                '🪄 Mindkét effekt be- és kikapcsolható az oldalsáv panelen',
+                '🎨 A világos és sötét téma bővűlt új színekkel'
+            ]
+        }
+    },
+    {
         version: '0.0.8',
         date: '2026-02-16',
         title: {

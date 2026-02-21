@@ -45,6 +45,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         openStorageFolder(this.context.globalStorageUri);
                         break;
                     }
+                    case 'toggleCursorMagic': {
+                        vscode.workspace.getConfiguration('scarlet-witch-theme').update('cursorMagic', data.value, vscode.ConfigurationTarget.Global);
+                        break;
+                    }
+                    case 'toggleTypingMagic': {
+                        vscode.workspace.getConfiguration('scarlet-witch-theme').update('typingMagic', data.value, vscode.ConfigurationTarget.Global);
+                        break;
+                    }
                     case 'ready': {
                         break;
                     }
@@ -55,10 +63,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             undefined,
             this.context.subscriptions
         );
-        webviewView.webview.html = this._getHtmlForWebview();
+        const config = vscode.workspace.getConfiguration('scarlet-witch-theme');
+        const isCursorMagicEnabled = config.get<boolean>('cursorMagic', true);
+        const isTypingMagicEnabled = config.get<boolean>('typingMagic', true);
+        webviewView.webview.html = this.getHtml(isCursorMagicEnabled, isTypingMagicEnabled);
     }
 
-    private _getHtmlForWebview(): string {
+    private getHtml(isCursorMagicEnabled: boolean, isTypingMagicEnabled: boolean): string {
         return `
             <!DOCTYPE html>
             <html lang="en">
@@ -242,6 +253,71 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                         line-height: 1.6;
                         color: var(--vscode-descriptionForeground);
                     }
+
+                    .toggle-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 12px;
+                        padding: 8px 12px;
+                        background: transparent;
+                        border: 1px solid rgba(217, 26, 79, 0.2);
+                        border-radius: 6px;
+                        font-size: 13px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    }
+
+                    .toggle-container:hover {
+                        border-color: rgba(217, 26, 79, 0.5);
+                        background: rgba(217, 26, 79, 0.05);
+                    }
+
+                    .switch {
+                        position: relative;
+                        display: inline-block;
+                        width: 36px;
+                        height: 20px;
+                    }
+
+                    .switch input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: var(--vscode-scrollbarSlider-background, #6a5a70); 
+                        transition: .4s;
+                        border-radius: 20px;
+                    }
+
+                    .slider:before {
+                        position: absolute;
+                        content: "";
+                        height: 14px;
+                        width: 14px;
+                        left: 3px;
+                        bottom: 3px;
+                        background-color: white;
+                        transition: .4s;
+                        border-radius: 50%;
+                    }
+
+                    input:checked + .slider {
+                        background: linear-gradient(135deg, #D91A4F 0%, #E6547A 100%);
+                        box-shadow: 0 0 8px rgba(217, 26, 79, 0.6);
+                    }
+
+                    input:checked + .slider:before {
+                        transform: translateX(16px);
+                    }
                 </style>
             </head>
             <body>
@@ -282,6 +358,26 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                 </div>
 
                 <div class="section">
+                    <div class="section-title">Magic Effects</div>
+                    
+                    <label class="toggle-container">
+                        <span>Cursor Magic</span>
+                        <div class="switch">
+                            <input type="checkbox" id="cursorToggle" ${isCursorMagicEnabled ? 'checked' : ''}>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+
+                    <label class="toggle-container">
+                        <span>Typing Magic</span>
+                        <div class="switch">
+                            <input type="checkbox" id="typingToggle" ${isTypingMagicEnabled ? 'checked' : ''}>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="section">
                     <div class="info-box">
                         <strong>🎉 Enjoy! 🎉</strong>
                     </div>
@@ -294,6 +390,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     const pictureBtn = document.getElementById('pictureBtn');
                     const darkholdBtn = document.getElementById('darkholdBtn');
                     const storageBtn = document.getElementById('storageBtn');
+                    const cursorToggle = document.getElementById('cursorToggle');
+                    const typingToggle = document.getElementById('typingToggle');
 
                     try {
                         vscode = acquireVsCodeApi();
@@ -347,6 +445,30 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                                 type: 'openStorageFolder'
                             });
                         } else {
+                            console.error('❌ VSCode API not available');
+                        }
+                    });
+
+                    cursorToggle.addEventListener('change', (e) => {
+                        if (vscode) {
+                            vscode.postMessage({
+                                type: 'toggleCursorMagic',
+                                value: e.target.checked
+                            });
+                        }
+                        else {
+                            console.error('❌ VSCode API not available');
+                        }
+                    });
+
+                    typingToggle.addEventListener('change', (e) => {
+                        if (vscode) {
+                            vscode.postMessage({
+                                type: 'toggleTypingMagic',
+                                value: e.target.checked
+                            });
+                        }
+                        else {
                             console.error('❌ VSCode API not available');
                         }
                     });
